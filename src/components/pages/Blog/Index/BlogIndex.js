@@ -50,17 +50,17 @@ const BlogIndex = () => {
         ]
     }
 
-    const postsDataSort = React.useMemo( () => {
+    const postsDataSort = () => {
         const sortedPosts = Object.values( posts )
         const property    = filterSortBy === 'popular' ? 'likes' : 'date'
 
         return sortedPosts.sort( ( a, b ) => ( ( a[ property ] < b[ property ] ) ? 1 : ( ( a[ property ] > b[ property ] ) ? -1 : 0 ) ) )
-    }, [ filterSortBy ] )
+    }
 
     const postsToShow = () => {
         const firstPostIndex = ( filterCurrentPage - 1 ) * filterPerPage
 
-        return postsDataSort.slice( firstPostIndex, firstPostIndex + filterPerPage )
+        return postsDataSort().slice( firstPostIndex, firstPostIndex + filterPerPage )
     }
 
     return (
