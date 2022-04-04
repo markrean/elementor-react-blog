@@ -65,7 +65,7 @@ const LoginButton = () => {
     return (
         <UserContext.Consumer>
             { ( { loginStatus, handleLogin } ) => {
-                return <a className="header__login-button" onClick={ ( e ) => { handleLogin() } }>{ loginStatus ? 'Logout' : "Login" }</a>
+                return <a href="/" className="header__login-button" onClick={ ( e ) => { e.preventDefault(); handleLogin() } }>{ loginStatus ? 'Logout' : "Login" }</a>
             } }
         </UserContext.Consumer>
     )

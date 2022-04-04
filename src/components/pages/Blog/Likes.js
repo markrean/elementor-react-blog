@@ -1,4 +1,4 @@
-import React, { useState }            from 'react'
+import React                          from 'react'
 import { ReactComponent as LikeIcon } from 'assets/icons/icon-heart.svg'
 import { useDispatch }                from 'react-redux'
 import { toggleLiked }                from 'data/store/postsSlice'

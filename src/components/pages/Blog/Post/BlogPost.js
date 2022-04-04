@@ -29,7 +29,7 @@ function BlogPostTemplate( props ) {
 
     const isLiked      = props.data.isLiked ?? false
     const link         = `/blog/p${ id }`
-    const imageElement = <div><img src={ `../data/img/${ img }` } /></div>
+    const imageElement = <div><img src={ `../data/img/${ img }` } alt={ title } /></div>
     const imageClass   = 'blog-post__thumb'
 
     let wrapperClasses = [ 'blog-post' ]
