@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect }                     from 'react'
+import { BrowserRouter as Router, useLocation } from 'react-router-dom'
+import { UserContext }                          from 'contexts/UserContext'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from 'components/structure/Header'
+import Footer from 'components/structure/Footer'
+
+import RouteList from './Routes'
+
+const ScrollToTop = () => {
+    const { pathname } = useLocation()
+
+    useEffect( () => {
+        window.scrollTo( 0, 0 )
+    }, [ pathname ] )
+
+    return null
 }
 
-export default App;
+class App extends React.Component {
+    constructor( props ) {
+        super( props )
+
+        this.handleLogin = this.handleLogin.bind( this )
+
+        this.state = {
+            isLoggedIn: false
+        }
+    }
+
+    handleLogin() {
+        this.setState( { isLoggedIn: !this.state.isLoggedIn } )
+    }
+
+    render() {
+        const loggedIn = {
+            loginStatus : this.state.isLoggedIn,
+            handleLogin : this.handleLogin
+        }
+
+        return (
+            <UserContext.Provider value={ loggedIn }>
+                <Router>
+                    <ScrollToTop />
+                    <Header />
+                    <main>
+                        <RouteList />
+                    </main>
+                    <Footer />
+                </Router>
+            </UserContext.Provider>
+        )
+    }
+}
+
+export default App

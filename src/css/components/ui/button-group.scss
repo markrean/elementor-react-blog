@@ -1,0 +1,58 @@
+.button-group__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > small {
+        font-weight: 700;
+        margin: 0 12px 0 0;
+    }
+}
+
+.button-group {
+    display: inline-flex;
+
+    > div {
+        z-index: 1;
+
+        &.button-group__button-wrapper--active {
+            z-index: 2;
+        }
+
+        + div {
+            margin-left: -1px;
+        }
+    }
+
+    &__button {
+        position: absolute;
+        left: -9999em;
+        top: -9999em;
+        visibility: hidden;
+        pointer-events: none;
+
+        + label {
+            display: block;
+            padding: 1em 1.5em;
+            cursor: pointer;
+            background-color: white;
+            border: 1px solid var( --color-ui-border );
+
+            &:hover {
+                transition: background-color 0.1s;
+                background-color: var( --color-ui-border );
+            }
+        }
+
+        &:checked + label {
+            background-color: black;
+            border-color: black;
+            color: white;
+            font-weight: 500;
+
+            &:hover {
+                transition: none;
+            }
+        }
+    }
+}

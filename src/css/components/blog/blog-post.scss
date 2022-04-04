@@ -1,0 +1,102 @@
+@import '../../stylesheet/_responsive.scss';
+
+.blog-post {
+    display: flex;
+    flex-direction: column;
+
+    .blog-post__thumb {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
+        background-color: var( --color-ui-border );
+
+        &:before {
+            content: '';
+            display: block;
+            padding: 0 0 52.5%;
+            position: relative;
+        }
+
+        > div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    h3 {
+        margin: 1.2em 0 0.6em;
+        font-size: 1.2rem;
+        line-height: 1.3;
+    }
+
+    .blog-post__excerpt {
+        margin-bottom: auto;
+        line-height: 1.5;
+
+        .blog-posts__grid & {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    &--single {
+        align-items: center;
+
+        > * {
+            order: 3;
+        }
+
+        h1 {
+            order: 1;
+            text-align: center;
+            font-size: 2.5rem;
+            padding: 0 15%;
+            margin: 1.5em 0 1em;
+        }
+
+        .blog-post__likes {
+            order: 2;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .blog-post__thumb {
+            max-width: 1200px;
+        }
+
+        .blog-post__excerpt {
+            font-size: 1.25rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 2em auto 3em;
+        }
+
+        .blog-post__back-link {
+            margin: 0 0 3em;
+        }
+
+        @include mobile {
+            h1 {
+                font-size: 1.5rem;
+                padding: 0;
+            }
+
+            .blog-post__excerpt {
+                font-size: 1rem;
+            }
+        }
+    }
+}

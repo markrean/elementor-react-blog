@@ -1,0 +1,57 @@
+// main: ../index.scss
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    appearance: none;
+    -webkit-appearance: none;
+    box-shadow: none;
+    border-radius: 0;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+
+    &:not(.disabled) {
+        cursor: pointer;
+    }
+
+    &:before, &:after {
+        font-size: 0;
+    }
+
+    &.button--size-m {
+        padding: 20px 30px;
+    }
+
+    &.button--black {
+        background-color: black;
+        color: white;
+
+        &:hover {
+            background-color: var( --color-grey-dark );
+        }
+    }
+
+    &.button--black-outline {
+        background-color: transparent;
+        border: 1px solid black;
+
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+
+        &:not(:hover):before, &:not(:hover):after {
+            filter: invert( 1 );
+        }
+    }
+
+    &.button--arrow-right:after {
+        content: url( '../../assets/icons/arrow-right.svg' );
+        margin-left: 1rem;
+    }
+
+    &.button--arrow-left:before {
+        content: url( '../../assets/icons/arrow-right.svg' );
+        transform: rotate( 180deg );
+        margin-right: 1rem;
+    }
+}

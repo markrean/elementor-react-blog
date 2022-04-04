@@ -1,0 +1,112 @@
+@import '../stylesheet/_responsive.scss';
+
+.homepage__welcome {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 600px;
+    max-width: 100%;
+    margin: 100px auto;
+    padding: 100px;
+    box-shadow: 40px -20px 60px 0 rgba( 0, 0, 0, 0.1 );
+    position: relative;
+
+    h1 {
+        font-size: 2rem;
+        letter-spacing: -0.02em;
+        position: relative;
+        text-align: center;
+    }
+
+    ul {
+        margin: 2rem 0 4rem;
+        position: relative;
+
+        li {
+            text-align: center;
+            line-height: 1.4;
+
+            + li {
+                margin-top: 16px;
+            }
+        }
+    }
+
+    a[href='/blog'] {
+        margin-left: auto;
+        position: relative;
+    }
+
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        background: rgba( 0, 0, 0, 0.05 );
+        transform: rotate( 30deg );
+    }
+
+    &:before {
+        top: -200px;
+        left: -200px;
+        width: 400px;
+        height: 400px;
+        z-index: -1;
+    }
+
+    &:after {
+        bottom: 180px;
+        right: -200px;
+        width: 160px;
+        height: 160px;
+    }
+
+    @include mobile {
+        margin: 0;
+        padding: 60px 20px;
+        box-shadow: none;
+        align-items: center;
+
+        &:before, &:after {
+            display: none;
+        }
+
+        a[href='/blog'] {
+            margin-left: 0;
+        }
+    }
+}
+
+.homepage__welcome-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    .tb {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 200px;
+        height: 140px;
+        overflow: hidden;
+
+        svg {
+            width: 120%;
+            height: auto;
+            fill: var( --color-elementor-accent );
+            opacity: 0.2;
+        }
+    }
+
+    .tc {
+        position: absolute;
+        bottom: 90px;
+        right: -60px;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        border: 1px solid rgba( 0, 0, 0, 0.3 );
+    }
+
+    @include mobile {
+        display: none;
+    }
+}

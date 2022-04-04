@@ -1,0 +1,31 @@
+.blog-posts__pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 0;
+
+    a {
+        background: white;
+        padding: 1em 1.5em;
+        border: 1px solid var( --color-ui-border );
+        text-decoration: none;
+        color: black;
+        line-height: 1;
+        font-size: 0.75rem;
+        z-index: 1;
+
+        + a {
+            margin-left: -1px;
+        }
+
+        &.blog-posts__pagination__page-numbers--current {
+            background: black;
+            border-color: black;
+            color: white;
+            z-index: 2;
+        }
+    }
+
+    .blog-posts__pagination__page-numbers {
+        display: flex;
+    }
+}

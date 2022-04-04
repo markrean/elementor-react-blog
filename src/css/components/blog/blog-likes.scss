@@ -1,0 +1,32 @@
+.blog-post__likes {
+    margin-top: 1.2em;
+    display: inline-flex;
+    height: 2.5em;
+    align-items: center;
+    font-size: 0.75rem;
+
+    input[type='button'] {
+        align-self: normal;
+        padding: 0 1.5em;
+        margin: 0 1.5em 0 0;
+        font-size: inherit;
+    }
+
+    svg {
+        width: 1em;
+        height: auto;
+        stroke: black;
+        stroke-width: 2;
+        fill: none;
+        margin: 0 0.5em 0 auto;
+
+        &.bp-liked {
+            stroke: var( --color-elementor-accent );
+            fill: var( --color-elementor-accent );
+        }
+    }
+
+    &:empty {
+        display: none;
+    }
+}
