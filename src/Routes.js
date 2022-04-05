@@ -8,7 +8,7 @@ import BlogPost  from 'components/pages/Blog/Post/BlogPost'
 
 const RouteList = () => (
     <Routes>
-        <Route path='*'        element={ <Page404 />   } kuku="kaka" />
+        <Route path='*'        element={ <Page404 />   } />
         <Route path='/'        element={ <Homepage />  } />
         <Route path='blog'     element={ <Blog />      }  >
             <Route index       element={ <BlogIndex /> } />
